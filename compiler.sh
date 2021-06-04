@@ -20,7 +20,8 @@
 #//////////////////////////////////////////////////////////////
 
 TAG_VERSION=latest
-DOCKER_IMAGE=bensuperpc/tinycc
+DOCKER_IMAGE=bensuperpc/<<IMAGE_NAME>>
+COMPILER_EXEC=<<IMAGE_NAME>>
 
 case "$1" in
     -version|-v)
@@ -29,7 +30,7 @@ case "$1" in
         shift
         ;;&
     -h)
-        echo "Usage: ${0##*/} [-version latest tcc -o hello hello.c]"
+        echo "Usage: ${0##*/} [-version latest $COMPILER_EXEC -o hello hello.c]"
         exit 1
         ;;
 esac
