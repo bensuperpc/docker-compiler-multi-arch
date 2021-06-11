@@ -2,9 +2,9 @@ ARG DOCKER_IMAGE=alpine:latest
 FROM $DOCKER_IMAGE AS builder
 
 RUN apk add --no-cache gcc make musl-dev git \
-	&& git clone --recurse-submodules <<GIT>>
+	&& git clone --recurse-submodules <<GIT_URL>>
 WORKDIR /<<IMAGE_NAME>>
-#--CPU=x86_64
+
 RUN ./configure --config-musl \
 	&& make -j$(nproc) \
 	&& make test -j$(nproc) \
