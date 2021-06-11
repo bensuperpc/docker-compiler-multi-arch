@@ -25,18 +25,18 @@ COPY --from=builder /usr/local /usr/local
 
 ENV PATH="/usr/local/bin:${PATH}"
 
-ENV CC=/usr/local/bin/tcc
+ENV CC=/usr/local/bin/<<IMAGE_NAME>>
 WORKDIR /usr/src/myapp
 
 CMD ["", "-h"]
 
 LABEL org.label-schema.schema-version="1.0" \
 	  org.label-schema.build-date=$BUILD_DATE \
-	  org.label-schema.name="bensuperpc/docker-<<IMAGE_NAME>>" \
+	  org.label-schema.name="bensuperpc/<<IMAGE_NAME>>" \
 	  org.label-schema.description="build <<IMAGE_NAME>> compiler" \
 	  org.label-schema.version=$VERSION \
 	  org.label-schema.vendor="Bensuperpc" \
 	  org.label-schema.url="http://bensuperpc.com/" \
 	  org.label-schema.vcs-url="https://github.com/Bensuperpc/docker-<<IMAGE_NAME>>" \
 	  org.label-schema.vcs-ref=$VCS_REF \
-	  org.label-schema.docker.cmd="docker build -t bensuperpc/docker-<<IMAGE_NAME>> -f Dockerfile ."
+	  org.label-schema.docker.cmd="docker build -t bensuperpc/<<IMAGE_NAME>> -f Dockerfile ."
